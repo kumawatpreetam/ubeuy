@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+    <title>Ubuy </title>
+    <!-- Fontawesome cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- css  -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- recaptcha link  -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body class="light-mode">
+    <div class="theme-toggle">
+        <button id="themeToggle">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+
+    <div class="container">
+        <div class="left-section">
+            <div class="illustration">
+                <img src="assets/deliveries.svg" alt="Shopping Illustration" class="main-illustration">
+            </div>
+            <div class="marketing-text">
+                <h2>Join Us Today!</h2>
+                <p>Experience a New Way to Shop</p>
+            </div>
+        </div>
+
+        <div class="right-section">
+            <div class="logo">
+                <h1>Ubuy</h1>
+            </div>
+
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="login">Login</button>
+                <button class="tab-btn" data-tab="signup">Sign Up</button>
+            </div>
+
+            <div class="forms-container">
+                <!-- Login Form -->
+                <form id="loginForm" class="form active">
+                    <div class="form-group">
+                        <label for="loginEmail">Email Address</label>
+                        <input type="email" id="loginEmail" required placeholder="Enter your email">
+                    </div>
+
+                    <div class="form-group password-group">
+                        <label for="loginPassword">Password</label>
+                        <div class="password-input">
+                            <input type="password" id="loginPassword" required placeholder="Enter your password">
+                            <button type="button" class="toggle-password">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="auth-options">
+                        <div class="forgot-password">
+                            <a href="#">Forgot Password?</a>
+                        </div>
+                        <div class="auth-toggle">
+                            <span>Use OTP</span>
+                            <label class="switch">
+                                <input type="checkbox" id="loginAuthToggle">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div id="loginPasswordFields" class="auth-field">
+                        <button type="submit" class="btn primary-btn">Login with Password</button>
+                    </div>
+
+                    <div id="loginOTPFields" class="auth-field hidden">
+                        <div class="form-group">
+                            <label for="loginOTP">Enter OTP</label>
+                            <input type="text" id="loginOTP" placeholder="Enter 6-digit OTP" maxlength="6" pattern="[0-9]{6}">
+                        </div>
+                        <button type="submit" class="btn primary-btn">Login with OTP</button>
+                    </div>
+                    
+                    <div class="social-login">
+                        <p class="social-text">Or continue with</p>
+                        <div class="social-icons">
+                            <button type="button" class="social-icon-btn" title="Login with Google">
+                                <i class="fab fa-google"></i>
+                            </button>
+                            <button type="button" class="social-icon-btn" title="Login with Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </button>
+                            <button type="button" class="social-icon-btn" title="Login with Apple">
+                                <i class="fab fa-apple"></i>
+                            </button>
+                            <button type="button" class="social-icon-btn" title="Login with PayPal">
+                                <i class="fab fa-paypal"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Signup Form -->
+                <form id="signupForm" class="form">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" required placeholder="Enter your full name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signupEmail">Email Address</label>
+                        <input type="email" id="signupEmail" required placeholder="Enter your email">
+                    </div>
+
+                    <div class="form-group password-group">
+                        <label for="signupPassword">Password</label>
+                        <div class="password-input">
+                            <input type="password" id="signupPassword" required placeholder="Create a password">
+                            <button type="button" class="toggle-password">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="password-strength"></div>
+                    </div>
+
+                    <div id="signupPasswordFields" class="auth-field">
+                        <div class="form-group password-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <div class="password-input">
+                                <input type="password" id="confirmPassword" required placeholder="Confirm your password">
+                                <button type="button" class="toggle-password">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="auth-toggle signup-toggle">
+                        <span>Use OTP Instead</span>
+                        <label class="switch">
+                            <input type="checkbox" id="signupAuthToggle">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+
+                    <div id="signupOTPFields" class="auth-field hidden">
+                        <div class="form-group">
+                            <label for="signupOTP">Enter OTP</label>
+                            <input type="text" id="signupOTP" placeholder="Enter 6-digit OTP" maxlength="6" pattern="[0-9]{6}">
+                        </div>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="mailingList">
+                            <span class="checkmark"></span>
+                            Join Our Mailing List for exclusive offers and updates
+                        </label>
+                    </div>
+
+                    <!-- Google reCAPTCHA -->
+                    <div class="form-group">
+                        <div class="g-recaptcha" data-sitekey="your-site-key"></div>
+                    </div>
+
+                    <!-- Terms & Conditions -->
+                    <div class="form-group terms-group">
+                        <label class="checkbox-container required">
+                            <input type="checkbox" id="termsAccept" required>
+                            <span class="checkmark"></span>
+                            I accept the <a href="#" class="terms-link">Terms & Conditions</a> and <a href="#" class="terms-link">Privacy Policy</a>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn primary-btn" id="signupButton">Sign Up with Password</button>
+
+                    <div class="social-login">
+                        <p class="social-text">Or sign up with</p>
+                        <div class="social-icons">
+                            <button type="button" class="social-icon-btn" title="Sign up with Google">
+                                <i class="fab fa-google"></i>
+                            </button>
+                            <button type="button" class="social-icon-btn" title="Sign up with Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </button>
+                            <button type="button" class="social-icon-btn" title="Sign up with Apple">
+                                <i class="fab fa-apple"></i>
+                            </button>
+                            <button type="button" class="social-icon-btn" title="Sign up with PayPal">
+                                <i class="fab fa-paypal"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div id="forgotPasswordModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Reset Password</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            
+            <form id="forgotPasswordForm" class="forgot-password-form">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <p class="forgot-password-info">Enter your email address below and we'll send you instructions to reset your password.</p>
+                        <label for="resetEmail">Email Address</label>
+                        <input type="email" id="resetEmail" required placeholder="Enter your email">
+                    </div>
+
+                    <div class="g-recaptcha" data-sitekey="your-site-key"></div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn primary-btn" id="sendResetLink">Send Reset Link</button>
+                </div>
+            </form>
+        </div>
+    </div>
+<!-- js link  -->
+    <script src="js/script.js"></script>
+</body>
+</html>
