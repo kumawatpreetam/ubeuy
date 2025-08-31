@@ -53,8 +53,6 @@ No extra dependencies are required. Simply open the `index.html` file in your br
 
 ## 📸 Screenshots
 
-_Add your project screenshots here_
-
 ![LogIn](assets/login.jpg)
 ![SignUp](assets/signup.jpg)
 ![Resetpassword](assets/reset.jpg)
